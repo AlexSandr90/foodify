@@ -1,62 +1,62 @@
-import React, { useState } from 'react';
+import React, {useState} from "react";
 import './App.css';
 
+function LiComponent(props) {
+    return (
+        <ul>
+            {
+                props.state
+                && props.state.meals
+                && props.state.meals.length > 0
+                && props.state.meals
+                    .map(req =>
+                        <li key={req.idMeal}>{req.strMeal}</li>
+                    )
+            }
+        </ul>
+    )
+};
+
+
 function App() {
-    const [ state, setState ] = useState([]);
-    const localState = [];
-    let localFlag = false;
+    let storage = window.localStorage;
+    const [state, setState] = useState([]);
 
-    const skip = () => {
-        fetch('https://www.themealdb.com/api/json/v1/1/random.php')
-            .then(responce => responce.json())
-            .then(data => {
-                console.log('Fetch data: ', data);
-                console.log('meals name = ', data.meals.map(item => item.strMeal).join());
-                setState(data.meals);
-                return (
-                    <ul>
-                        <li>q</li>
-                    </ul>
-                );
-            });
+    const getRandomRecipe = () => {
+
+        fetch("https://www.themealdb.com/api/json/v1/1/random.php")
+            .then(res => res.json())
+            .then(res => setState(res));
     };
 
-    const Local = () => {
-        debugger
-        return (
-            localState.map(item => {
-                return (
-                    <li>{item.strMeal}</li>
-                )
-            })
-        )
-    }
 
-    console.log('>>> state = ', state);
-
-    const like = () => {
-        state.map(item => localState.push(item));
-        console.log('>>>>>localState like = ', localState);
-        return localState;
-    };
-    console.log('>>>>>>>>>>>> localState = ', localState);
-
-    const renderLocal = () => {
-        return !localFlag;
+    const saveRecipeToLocalStorage = () => {
+        let data = JSON.stringify(state);
+        storage.setItem("meal", data);
     };
 
-    console.log('localFlag: ', localFlag);
+    // const saveRecipeToLocalStorage = () => {
+    //     const newState = state + getRandomRecipe();
+    //     setState(newState);
+    //     // Get the currently stored clicks from local storage
+    //     const clicks = JSON.parse(localStorage.getItem("data2")) ?? [];
+    //     clicks.push(newState);
+    //     localStorage.setItem("data2", JSON.stringify(newState));
+    // };
+
+    const readRecipeFromLocalStorage = () => {
+        const obj = JSON.parse(storage.getItem('meal'));
+        setState(obj);
+    };
+
     return (
         <div className="App">
-            <header className='App-header'>
+            <header className="App-header">
+                <button onClick={getRandomRecipe}>skip recipe</button>
+                <button onClick={saveRecipeToLocalStorage}>save recipe</button>
+                <button onClick={readRecipeFromLocalStorage}>show recipe to console</button>
 
-                <button onClick={skip}>Skip recipe</button>
-                <button onClick={like}>Like recipe</button>
-                <button onClick={renderLocal}>LOCAL</button>
-                <ul>
-                    { localFlag && Local }
-                </ul>
-
+                <LiComponent state={state}/>
             </header>
         </div>
     );
