@@ -2,7 +2,9 @@ import React, {useState} from "react";
 import './App.css';
 
 function LiComponent(props) {
-    return (
+    console.log('LiComponent STATE: ', props.state);
+
+     return (
         <ul>
             {
                 props.state
@@ -17,38 +19,46 @@ function LiComponent(props) {
     )
 };
 
+let randomArr = [];
 
 function App() {
+    // let randomArr = [];
     let storage = window.localStorage;
     const [state, setState] = useState([]);
+
+    console.log('state glob: ', state);
+    console.log('randomArr glob: ', randomArr);
 
     const getRandomRecipe = () => {
 
         fetch("https://www.themealdb.com/api/json/v1/1/random.php")
             .then(res => res.json())
-            .then(res => setState(res));
+            .then(res => {
+                setState(res);
+                // randomArr.push(res)
+            });
     };
 
 
     const saveRecipeToLocalStorage = () => {
-        let data = JSON.stringify(state);
+        randomArr.push(state);
+        let data = JSON.stringify(randomArr);
         storage.setItem("meal", data);
+
+
+        console.log('storage save: ', JSON.parse(storage.getItem('meal')));
+        console.log('randomArr save: ', randomArr);
     };
 
-    // const saveRecipeToLocalStorage = () => {
-    //     const newState = state + getRandomRecipe();
-    //     setState(newState);
-    //     // Get the currently stored clicks from local storage
-    //     const clicks = JSON.parse(localStorage.getItem("data2")) ?? [];
-    //     clicks.push(newState);
-    //     localStorage.setItem("data2", JSON.stringify(newState));
-    // };
 
     const readRecipeFromLocalStorage = () => {
         const obj = JSON.parse(storage.getItem('meal'));
+        console.log('readRecipeFromLocalStorage obj: ', obj);
         setState(obj);
     };
 
+
+    console.log('randomArr footer: ', randomArr);
     return (
         <div className="App">
             <header className="App-header">
@@ -56,7 +66,10 @@ function App() {
                 <button onClick={saveRecipeToLocalStorage}>save recipe</button>
                 <button onClick={readRecipeFromLocalStorage}>show recipe to console</button>
 
-                <LiComponent state={state}/>
+
+                <ul>
+                    <LiComponent state={state}/>
+                </ul>
             </header>
         </div>
     );
