@@ -1,22 +1,31 @@
-import React, {useState} from "react";
+import React, {Fragment, useState} from "react";
 import './App.css';
 
 function LiComponent(props) {
     console.log('>>> LiComponent STATE: ', props.state);
+    // console.log('>>> LiComponent STATE: ', props.state);
     console.log('>>> LiComponent PROPS: ', props);
-
+// debugger
      return (
-        <>
+        <Fragment>
             {
-                props.state
-                && props.state.meals
-                && props.state.meals.length > 0
-                && props.state.meals
-                    .map(req =>
-                        <li key={req.idMeal}>{req.strMeal}</li>
+                // props.state
+                // && props.state.meals
+                // && props.state.meals.length > 0
+                // && props.state.meals
+                //     .map(req =>
+                //         <li key={req.idMeal}>{req.strMeal}</li>
+                //     )
+                props.state && props.state.length > 0 && props.state.map(item => {
+                    console.log('>>> props.state.map.item = ', item);
+                    console.log('>>> item.meals.strMeal = ', item.meals[0].strMeal);
+                    console.log('>>> item.meals = ', item.meals[0]);
+                    return (
+                        <li key={item.meals[0].idMeal}>{item.meals[0].strMeal}</li>
                     )
+                })
             }
-        </>
+        </Fragment>
     )
 };
 
@@ -51,6 +60,7 @@ function App() {
 
 
     const readRecipeFromLocalStorage = () => {
+        // debugger
         const obj = JSON.parse(storage.getItem('meal'));
         console.log('readRecipeFromLocalStorage obj: ', obj);
         setState(obj);
