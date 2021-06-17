@@ -2,10 +2,11 @@ import React, {useState} from "react";
 import './App.css';
 
 function LiComponent(props) {
-    console.log('LiComponent STATE: ', props.state);
+    console.log('>>> LiComponent STATE: ', props.state);
+    console.log('>>> LiComponent PROPS: ', props);
 
      return (
-        <ul>
+        <>
             {
                 props.state
                 && props.state.meals
@@ -15,14 +16,13 @@ function LiComponent(props) {
                         <li key={req.idMeal}>{req.strMeal}</li>
                     )
             }
-        </ul>
+        </>
     )
 };
 
 let randomArr = [];
 
 function App() {
-    // let randomArr = [];
     let storage = window.localStorage;
     const [state, setState] = useState([]);
 
@@ -35,7 +35,6 @@ function App() {
             .then(res => res.json())
             .then(res => {
                 setState(res);
-                // randomArr.push(res)
             });
     };
 
@@ -57,8 +56,6 @@ function App() {
         setState(obj);
     };
 
-
-    console.log('randomArr footer: ', randomArr);
     return (
         <div className="App">
             <header className="App-header">
