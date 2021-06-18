@@ -1,5 +1,6 @@
 import React, {Fragment, useState} from "react";
 import './App.css';
+import Header from "../header";
 
 function LiComponent(props) {
     console.log('>>> LiComponent STATE: ', props.state);
@@ -68,15 +69,14 @@ function App() {
 
     return (
         <div className="App">
-            <header className="App-header">
-                <button onClick={getRandomRecipe}>skip recipe</button>
-                <button onClick={saveRecipeToLocalStorage}>save recipe</button>
-                <button onClick={readRecipeFromLocalStorage}>show recipe to console</button>
+            <Header/>
+            <button onClick={getRandomRecipe}>skip recipe</button>
+            <button onClick={saveRecipeToLocalStorage}>save recipe</button>
+            <button onClick={readRecipeFromLocalStorage}>show recipe to console</button>
 
-                <ul>
-                    <LiComponent state={state}/>
-                </ul>
-            </header>
+            <ul>
+                <LiComponent state={state}/>
+            </ul>
         </div>
     );
 }
