@@ -73,7 +73,6 @@ function App() {
                 <button onClick={saveRecipeToLocalStorage}>save recipe</button>
                 <button onClick={readRecipeFromLocalStorage}>show recipe to console</button>
 
-
                 <ul>
                     <LiComponent state={state}/>
                 </ul>
