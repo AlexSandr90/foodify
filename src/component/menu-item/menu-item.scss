@@ -1,0 +1,14 @@
+.nav-item {
+  list-style-type: none;
+
+  .item {
+    text-decoration: none;
+    font-weight: normal;
+    color: #000000;
+    font-size: 18px;
+  }
+
+  .active-recipe {
+    color: #457bcb;
+  }
+}

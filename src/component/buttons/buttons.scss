@@ -1,0 +1,30 @@
+.buttons {
+  display: flex;
+  max-width: 390px;
+  width: 100%;
+  justify-content: space-around;
+  background-color: #F8F8F8;
+
+  .card-btn {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    width: 190px;
+    height: 45px;
+    background-color: #C4C4C4;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    line-height: 21px;
+
+    &:hover {
+      background-color: #c3c4ac;
+      color: #1b353e;
+    }
+
+    &:active {
+      background-color: #a6c4b2;
+      color: #1b3e3c;
+    }
+  }
+}

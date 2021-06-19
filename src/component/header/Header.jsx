@@ -1,11 +1,27 @@
 import React from 'react';
 
-import './header.css';
+import './header.scss';
+import MenuItem from "../menu-item";
 
-const Header = props => {
+const Header = () => {
 
     return(
-        <header className="header">Header</header>
+        <header className="header">
+            <nav className='nav'>
+                <MenuItem
+                    key='1'
+                    path=''
+                    menuItemName='Random dish'
+
+                />
+
+                <MenuItem
+                    key='2'
+                    path='favorite'
+                    menuItemName='Favorites'
+                />
+            </nav>
+        </header>
     )
 };
 
