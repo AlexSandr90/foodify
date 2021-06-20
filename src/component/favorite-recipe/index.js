@@ -1,3 +1,3 @@
-import FavoriteRecipe from "./FavoriteRecipe";
+import FavoriteRecipes from "./FavoriteRecipes";
 
-export default FavoriteRecipe;
+export default FavoriteRecipes;

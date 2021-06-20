@@ -4,9 +4,12 @@ import './header.scss';
 import MenuItem from "../menu-item";
 
 const Header = () => {
+    // console.info('Header window.location: ', window.location);
 
     return(
         <header className="header">
+            {console.info('Header window.location: ', window.location)}
+
             <nav className='nav'>
                 <MenuItem
                     key='1'

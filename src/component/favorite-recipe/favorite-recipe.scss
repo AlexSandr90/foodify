@@ -1,8 +1,64 @@
 .favorite-card {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
   max-width: 1440px;
   width: 100%;
+
+  .add-custom-recipe {
+    max-width: 1440px;
+    width: 100%;
+  }
+}
+
+.custom-dish_form {
+  display: flex;
+  flex-direction: column;
+  max-width: 430px;
+  width: 100%;
+
+  .custom-dish_input,
+  .custom-dish_text-field {
+    border: 1px solid #b5b5b5;
+    box-sizing: border-box;
+    outline: none;
+    margin-bottom: 1rem;
+
+    &::placeholder {
+      color: #b5b5b5;
+      font-family: 'Roboto', sans-serif;
+      line-height: 21px;
+      padding-left: 10px;
+    }
+  }
+
+  .custom-dish_text-field {
+    resize: none;
+  }
+
+  .card-btn {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    max-width: 430px;
+    width: 100%;
+    height: 45px;
+    background-color: #C4C4C4;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    line-height: 21px;
+
+
+    &:hover {
+      background-color: #c3c4ac;
+      color: #1b353e;
+    }
+
+    &:active {
+      background-color: #a6c4b2;
+      color: #1b3e3c;
+    }
+  }
 }
