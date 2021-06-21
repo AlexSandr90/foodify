@@ -95,7 +95,9 @@ const FavoriteRecipes = () => {
                 </AddCustomRecipe>
 
             </div>
+
             {cardsRecipe}
+
         </div>
     )
 };

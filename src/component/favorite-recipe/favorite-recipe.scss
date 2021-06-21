@@ -24,13 +24,21 @@
     box-sizing: border-box;
     outline: none;
     margin-bottom: 1rem;
+    font-size: 18px;
+    padding-left: 10px;
+    font-family: 'Roboto', sans-serif;
 
     &::placeholder {
       color: #b5b5b5;
-      font-family: 'Roboto', sans-serif;
-      line-height: 21px;
-      padding-left: 10px;
     }
+  }
+
+  .custom-dish_input {
+    line-height: 36px;
+  }
+
+  .custom-dish_text-field {
+    padding-top: 5px;
   }
 
   .custom-dish_text-field {
