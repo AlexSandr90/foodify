@@ -2,8 +2,14 @@ import React from 'react';
 
 import './recipe-card.scss'
 
-const RecipeCard = ({ idMeal, strMeal, strInstructions, strMealThumb }) => {
+const RecipeCard = props => {
 
+    const {
+        idMeal,
+        strMeal,
+        strMealThumb,
+        strInstructions
+    } = props;
 
     return (
         <div className='recipe-card' key={ idMeal }>

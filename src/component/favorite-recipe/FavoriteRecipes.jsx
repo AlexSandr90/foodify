@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import './favorite-recipe.scss';
+import mock_img from '../../assets/images/mock-recipe-img.jpg'
 
 import RecipeCard from "../recipe-card";
 import AddCustomRecipe from "../add-custom-recipe";
+import CustomButton from "../custom-button";
+import {
+    storage,
+    randomID,
+    handleChange
+} from "../helpers/helpers";
+
 
 const FavoriteRecipes = () => {
-    let storage = window.localStorage;
-
     const [ text, setText ] = useState('');
     const [ input, setInput ] = useState('');
     const [ popupFlag, setPopupFlag ] = useState(false);
-
-    const randomID = (min, max) => {
-        return  Math.round(min - 0.5 + Math.random() * (max - min + 1));
-    };
 
     const cardsRecipe = JSON.parse(storage.meal)
         .map(meal => {
@@ -39,29 +41,23 @@ const FavoriteRecipes = () => {
         let obj = {
             idMeal: randomID(1, 9999),
             strMeal: input,
-            strInstructions: text,
-            strMealThumb: 'https://lh3.googleusercontent.com/proxy/bScjZ5fwTM1-6tBBxJWNi7QSK5acwpfcM7i4kClRD8vJIEHMXZZzFzYO_HMCCYEbJLXUraHE1pY_PdQsZymdwBKx'
+            strMealThumb: mock_img,
+            strInstructions: text
         };
         let tempArr = [...JSON.parse(storage.meal), obj];
-        let data = JSON.stringify(tempArr);
-        storage.setItem("meal", data);
+        storage.setItem("meal", JSON.stringify(tempArr));
         setPopupFlag(false);
-    };
-
-    const handleInput = event => {
-        setInput(event.target.value);
-    };
-
-    const handleTextArea = event => {
-        setText(event.target.value);
     };
 
     return (
         <div className='favorite-card'>
             <div className='add-custom-recipe'>
-                <button onClick={() => setPopupFlag(true)}>
+                <CustomButton
+                    buttonClassName='card-btn card-position size'
+                    handleClick={() => setPopupFlag(true)}
+                >
                     Add custom dish
-                </button>
+                </CustomButton>
 
                 <AddCustomRecipe
                     trigger={popupFlag}
@@ -73,7 +69,7 @@ const FavoriteRecipes = () => {
                             type="text"
                             placeholder='Dish title'
                             className='custom-dish_input'
-                            onChange={handleInput}
+                            onChange={(event) => handleChange(event, setInput)}
                         />
                         <textarea
                             className='custom-dish_text-field'
@@ -81,16 +77,18 @@ const FavoriteRecipes = () => {
                             cols="30"
                             rows="10"
                             placeholder='Dish description...'
-                            onChange={handleTextArea}
+                            onChange={event => handleChange(event, setText)}
                         >
 
                         </textarea>
-                        <button
-                            className='card-btn'
-                            onClick={event => saveRecipeToLocalStorage(event)}
+
+                        <CustomButton
+                            buttonClassName='card-btn'
+                            handleClick={event => saveRecipeToLocalStorage(event)}
                         >
                             Add custom dish
-                        </button>
+                        </CustomButton>
+
                     </form>
                 </AddCustomRecipe>
 

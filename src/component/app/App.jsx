@@ -4,31 +4,15 @@ import Header from "../header";
 import {
     Route,
     Switch,
-    BrowserRouter
+    BrowserRouter as Router
 } from "react-router-dom";
 import RandomRecipe from "../random-recipe";
 import FavoriteRecipes from "../favorite-recipe";
 
 const App = () => {
 
-    // const saveRecipeToLocalStorage = () => {
-    //     randomArr.push(state);
-    //     let data = JSON.stringify(randomArr);
-    //     storage.setItem("meal", data);
-    //
-    //
-    //     console.log('storage save: ', JSON.parse(storage.getItem('meal')));
-    //     console.log('randomArr save: ', randomArr);
-    // };
-    //
-    // const readRecipeFromLocalStorage = () => {
-    //     const obj = JSON.parse(storage.getItem('meal'));
-    //     console.log('readRecipeFromLocalStorage obj: ', obj);
-    //     setState(obj);
-    // };
-
     return (
-        <BrowserRouter>
+        <Router>
             <div className="App">
                 <Header/>
 
@@ -49,7 +33,7 @@ const App = () => {
                 </main>
 
             </div>
-        </BrowserRouter>
+        </Router>
     );
 };
 
