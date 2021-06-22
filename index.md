@@ -1,18 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <title>React App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
-</html>
+import React from "react";
+import './App.scss';
+import Header from "../header";
+import {
+    Route,
+    Switch,
+    BrowserRouter as Router
+} from "react-router-dom";
+import RandomRecipe from "../random-recipe";
+import FavoriteRecipes from "../favorite-recipe";
+
+const App = () => {
+
+    return (
+        <Router>
+            <div className="App">
+                <Header/>
+
+                <main className='main-content'>
+                    <Switch>
+                        <Route
+                            path='/foodify'
+                            render={() => <RandomRecipe/>}
+                            exact
+                        />
+
+                        <Route
+                            path='/foodify/favorite'
+                            render={() => <FavoriteRecipes/>}
+                            exact
+                        />
+                    </Switch>
+                </main>
+
+            </div>
+        </Router>
+    );
+};
+
+export default App;
