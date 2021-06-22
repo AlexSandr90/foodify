@@ -12,7 +12,7 @@ import FavoriteRecipes from "../favorite-recipe";
 const App = () => {
 
     return (
-        <HashRouter >
+        <HashRouter basename={process.env.PUBLIC_URL}>
             <div className="App">
                 <Header/>
 
