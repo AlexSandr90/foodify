@@ -19,13 +19,13 @@ const App = () => {
                 <main className='main-content'>
                     <Switch>
                         <Route
-                            path='/foodify'
+                            path='/'
                             render={() => <RandomRecipe/>}
                             exact
                         />
 
                         <Route
-                            path='/foodify/favorite'
+                            path='/favorite'
                             render={() => <FavoriteRecipes/>}
                             exact
                         />
