@@ -4,7 +4,7 @@ import Header from "../header";
 import {
     Route,
     Switch,
-    BrowserRouter as Router
+    HashRouter
 } from "react-router-dom";
 import RandomRecipe from "../random-recipe";
 import FavoriteRecipes from "../favorite-recipe";
@@ -12,7 +12,7 @@ import FavoriteRecipes from "../favorite-recipe";
 const App = () => {
 
     return (
-        <Router basename={process.env.PUBLIC_URL}>
+        <HashRouter >
             <div className="App">
                 <Header/>
 
@@ -33,7 +33,7 @@ const App = () => {
                 </main>
 
             </div>
-        </Router>
+        </HashRouter>
     );
 };
 
