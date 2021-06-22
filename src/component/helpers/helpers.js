@@ -10,6 +10,12 @@ export const randomID = (min, max) => {
 
 export const saveRecipeToLocalStorage = (event, localState) => {
     event.preventDefault();
+    if (!storage.getItem('meal')) {
+        let temp = [];
+        temp.push(localState);
+        storage.setItem('meal', JSON.stringify(temp));
+    }
+
     let tempArr = [...JSON.parse(storage.meal), localState];
     storage.setItem("meal", JSON.stringify(tempArr));
 };
