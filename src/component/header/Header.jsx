@@ -11,14 +11,13 @@ const Header = () => {
             <nav className='nav'>
                 <MenuItem
                     key='1'
-                    path=''
+                    path='foodify'
                     menuItemName='Random dish'
-
                 />
 
                 <MenuItem
                     key='2'
-                    path='favorite'
+                    path='foodify/favorite'
                     menuItemName='Favorites'
                 />
             </nav>

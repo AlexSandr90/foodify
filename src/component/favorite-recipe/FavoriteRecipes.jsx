@@ -51,6 +51,7 @@ const FavoriteRecipes = () => {
 
     return (
         <div className='favorite-card'>
+
             <div className='add-custom-recipe'>
                 <CustomButton
                     buttonClassName='card-btn card-position size'
