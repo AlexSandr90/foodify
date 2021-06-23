@@ -14,10 +14,11 @@ export const saveRecipeToLocalStorage = (event, localState) => {
         let temp = [];
         temp.push(localState);
         storage.setItem('meal', JSON.stringify(temp));
+    } else {
+        let tempArr = [...JSON.parse(storage.meal), localState];
+        storage.setItem("meal", JSON.stringify(tempArr));
     }
 
-    let tempArr = [...JSON.parse(storage.meal), localState];
-    storage.setItem("meal", JSON.stringify(tempArr));
 };
 
 export const getRandomRecipe = (event, localState) => {
