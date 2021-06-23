@@ -18,10 +18,10 @@ const RandomRecipe = props => {
         if (state.length === 0 && isEmpty('meal')) {
             return (
                 <RecipeCard
-                    key={meal[0].idMeal}
-                    strMeal={meal[0].strMeal}
-                    strMealThumb={meal[0].strMealThumb}
-                    strInstructions={meal[0].strInstructions}
+                    key={meal[0]?.idMeal}
+                    strMeal={meal[0]?.strMeal}
+                    strMealThumb={meal[0]?.strMealThumb}
+                    strInstructions={meal[0]?.strInstructions}
                 />
             )
         }

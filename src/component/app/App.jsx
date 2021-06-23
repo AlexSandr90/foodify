@@ -16,6 +16,10 @@ import {
 
 const App = () => {
 
+    if (storage.length === 0) {
+        storage.setItem('meal', '[]');
+    }
+
     const renderCondition = () => {
         if ( (isEmpty('meal') && JSON.parse( storage.getItem('meal') ).length !== 0) === true) {
             return <FavoriteRecipes/>
@@ -45,6 +49,7 @@ const App = () => {
                         >
                             { renderCondition }
                         </Route>
+
                     </Switch>
                 </main>
 

@@ -8,7 +8,7 @@ export const randomID = (min, max) => {
     return Math.round(min - 0.5 + Math.random() * (max - min + 1));
 };
 
-export const isEmpty = key => !storage.getItem(key) ? false : true;
+export const isEmpty = key => storage.getItem(key) ? true : false;
 
 export const saveRecipeToLocalStorage = (event, localState) => {
     event.preventDefault();
@@ -28,12 +28,13 @@ export const getRandomRecipe = (event, localState) => {
     fetch(apiSrc)
         .then(res => res.json())
         .then(res => {
-            let obj = {
-                idMeal: res.meals[0].idMeal,
-                strMeal: res.meals[0].strMeal,
-                strMealThumb: res.meals[0].strMealThumb,
-                strInstructions: res.meals[0].strInstructions,
-            };
-            localState(obj);
+            const { idMeal, strMeal, strMealThumb, strInstructions } = res.meals[0];
+
+            localState({
+                idMeal,
+                strMeal,
+                strMealThumb,
+                strInstructions
+            });
         });
 };
