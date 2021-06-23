@@ -10,6 +10,15 @@
     max-width: 1440px;
     width: 100%;
   }
+
+  .cards {
+    display: flex;
+
+    max-width: 1280px;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
 
 .custom-dish_form {

@@ -8,6 +8,8 @@ export const randomID = (min, max) => {
     return Math.round(min - 0.5 + Math.random() * (max - min + 1));
 };
 
+export const isEmpty = key => !storage.getItem(key) ? false : true;
+
 export const saveRecipeToLocalStorage = (event, localState) => {
     event.preventDefault();
     if (!storage.getItem('meal')) {
@@ -18,7 +20,6 @@ export const saveRecipeToLocalStorage = (event, localState) => {
         let tempArr = [...JSON.parse(storage.meal), localState];
         storage.setItem("meal", JSON.stringify(tempArr));
     }
-
 };
 
 export const getRandomRecipe = (event, localState) => {

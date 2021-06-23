@@ -39,7 +39,7 @@ const FavoriteRecipes = () => {
     const saveRecipeToLocalStorage = event => {
         event.preventDefault();
         let obj = {
-            idMeal: randomID(1, 9999),
+            idMeal: `${randomID(1, 9999)}`,
             strMeal: input,
             strMealThumb: mock_img,
             strInstructions: text
@@ -95,7 +95,10 @@ const FavoriteRecipes = () => {
 
             </div>
 
-            {cardsRecipe}
+            <div className="cards">
+                { cardsRecipe }
+            </div>
+
 
         </div>
     )

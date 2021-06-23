@@ -9,20 +9,15 @@ import {
 } from "react-router-dom";
 import RandomRecipe from "../random-recipe";
 import FavoriteRecipes from "../favorite-recipe";
-import {storage} from "../helpers/helpers";
+import {
+    isEmpty,
+    storage
+} from "../helpers/helpers";
 
 const App = () => {
 
-    const isEmpty = () => {
-        if (!storage.getItem('meal')) {
-            return false;
-        }
-
-        return true;
-    };
-
     const renderCondition = () => {
-        if ( (isEmpty() && JSON.parse( storage.getItem('meal') ).length !== 0) === true) {
+        if ( (isEmpty('meal') && JSON.parse( storage.getItem('meal') ).length !== 0) === true) {
             return <FavoriteRecipes/>
         } else {
             return <Redirect to='/'/>
@@ -48,7 +43,7 @@ const App = () => {
                             path='/favorite'
                             exact
                         >
-                            { renderCondition() }
+                            { renderCondition }
                         </Route>
                     </Switch>
                 </main>
