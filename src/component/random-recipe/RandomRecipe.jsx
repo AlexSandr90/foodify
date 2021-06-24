@@ -13,6 +13,28 @@ import {
 const RandomRecipe = props => {
     const [state, setState ] = useState([]);
 
+    if (storage.length === 0) {
+        storage.setItem('meal', '[]');
+        const apiSrc = "https://www.themealdb.com/api/json/v1/1/random.php";
+        fetch(apiSrc)
+            .then(res => res.json())
+            .then(res => {
+                const {
+                    idMeal,
+                    strMeal,
+                    strMealThumb,
+                    strInstructions
+                } = res.meals[0];
+
+                setState({
+                    idMeal,
+                    strMeal,
+                    strMealThumb,
+                    strInstructions
+                });
+            });
+    }
+
     const renderRecipe = () => {
         const meal = JSON.parse(storage.meal);
         if (state.length === 0 && isEmpty('meal')) {

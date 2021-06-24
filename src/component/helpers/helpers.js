@@ -28,7 +28,12 @@ export const getRandomRecipe = (event, localState) => {
     fetch(apiSrc)
         .then(res => res.json())
         .then(res => {
-            const { idMeal, strMeal, strMealThumb, strInstructions } = res.meals[0];
+            const {
+                idMeal,
+                strMeal,
+                strMealThumb,
+                strInstructions
+            } = res.meals[0];
 
             localState({
                 idMeal,
