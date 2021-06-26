@@ -9,7 +9,7 @@ import CustomButton from "../custom-button";
 import {
     storage,
     randomID,
-    handleChange
+    handleChange, isEmptyObj
 } from "../helpers/helpers";
 
 
@@ -37,8 +37,11 @@ const FavoriteRecipes = () => {
             )
         });
 
-    const saveRecipeToLocalStorage = event => {
-        event.preventDefault();
+    const saveRecipeToLocalStorage = () => {
+        if (!input || !text) {
+            return;
+        }
+
         let obj = {
             idMeal: `${randomID(1, 9999)}`,
             strMeal: input,
@@ -86,7 +89,7 @@ const FavoriteRecipes = () => {
 
                         <CustomButton
                             buttonClassName='card-btn'
-                            handleClick={event => saveRecipeToLocalStorage(event)}
+                            handleClick={event => saveRecipeToLocalStorage()}
                         >
                             Add custom dish
                         </CustomButton>
