@@ -9,8 +9,20 @@ export const randomID = (min, max) => {
 };
 
 export const isEmpty = key => storage.getItem(key) ? true : false;
+export const isEmptyObj = obj => {
+    for (let key in obj) {
+        return false;
+    }
+
+    return true;
+};
+
 
 export const saveRecipeToLocalStorage = localState => {
+    if (isEmptyObj(localState)) {
+        return;
+    };
+
     if (!storage.getItem('meal')) {
         let temp = [];
         temp.push(localState);
