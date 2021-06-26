@@ -10,8 +10,7 @@ export const randomID = (min, max) => {
 
 export const isEmpty = key => storage.getItem(key) ? true : false;
 
-export const saveRecipeToLocalStorage = (event, localState) => {
-    event.preventDefault();
+export const saveRecipeToLocalStorage = localState => {
     if (!storage.getItem('meal')) {
         let temp = [];
         temp.push(localState);
@@ -22,8 +21,7 @@ export const saveRecipeToLocalStorage = (event, localState) => {
     }
 };
 
-export const getRandomRecipe = (event, localState) => {
-    event.preventDefault();
+export const getRandomRecipe = localState => {
     const apiSrc = "https://www.themealdb.com/api/json/v1/1/random.php";
     fetch(apiSrc)
         .then(res => res.json())

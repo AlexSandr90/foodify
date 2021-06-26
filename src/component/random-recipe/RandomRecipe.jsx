@@ -10,29 +10,12 @@ import {
     saveRecipeToLocalStorage
 } from "../helpers/helpers";
 
-const RandomRecipe = props => {
+const RandomRecipe = () => {
     const [state, setState ] = useState([]);
 
-    if (storage.length === 0) {
+    if (storage.length === 0 || !storage.getItem('meal')) {
         storage.setItem('meal', '[]');
-        const apiSrc = "https://www.themealdb.com/api/json/v1/1/random.php";
-        fetch(apiSrc)
-            .then(res => res.json())
-            .then(res => {
-                const {
-                    idMeal,
-                    strMeal,
-                    strMealThumb,
-                    strInstructions
-                } = res.meals[0];
-
-                setState({
-                    idMeal,
-                    strMeal,
-                    strMealThumb,
-                    strInstructions
-                });
-            });
+        getRandomRecipe(setState);
     }
 
     const renderRecipe = () => {
@@ -67,14 +50,14 @@ const RandomRecipe = props => {
             <div className="buttons">
                 <CustomButton
                     buttonClassName='card-btn'
-                    handleClick={(event) => getRandomRecipe(event, setState)}
+                    handleClick={() => getRandomRecipe(setState)}
                 >
                     Skip
                 </CustomButton>
 
                 <CustomButton
                     buttonClassName='card-btn'
-                    handleClick={(event) => saveRecipeToLocalStorage(event, state)}
+                    handleClick={() => saveRecipeToLocalStorage(state)}
                 >
                     Like
                 </CustomButton>

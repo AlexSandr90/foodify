@@ -1,5 +1,5 @@
 import React from "react";
-import './App.scss';
+import './app.scss';
 import Header from "../header";
 import {
     Route,
@@ -10,8 +10,8 @@ import {
 import RandomRecipe from "../random-recipe";
 import FavoriteRecipes from "../favorite-recipe";
 import {
-    isEmpty,
-    storage
+    storage,
+    isEmpty
 } from "../helpers/helpers";
 
 const App = () => {
@@ -26,7 +26,7 @@ const App = () => {
 
     return (
         <HashRouter basename={process.env.PUBLIC_URL}>
-            <div className="App">
+            <div className="app">
                 <Header/>
 
                 <main className='main-content'>
