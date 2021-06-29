@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/foodify/static/css/main.0d08eb91.chunk.css",
-    "main.js": "/foodify/static/js/main.6adedaf9.chunk.js",
-    "main.js.map": "/foodify/static/js/main.6adedaf9.chunk.js.map",
+    "main.js": "/foodify/static/js/main.9ee6ff23.chunk.js",
+    "main.js.map": "/foodify/static/js/main.9ee6ff23.chunk.js.map",
     "runtime-main.js": "/foodify/static/js/runtime-main.405298cb.js",
     "runtime-main.js.map": "/foodify/static/js/runtime-main.405298cb.js.map",
-    "static/js/2.a4b76fab.chunk.js": "/foodify/static/js/2.a4b76fab.chunk.js",
-    "static/js/2.a4b76fab.chunk.js.map": "/foodify/static/js/2.a4b76fab.chunk.js.map",
+    "static/js/2.6ece7809.chunk.js": "/foodify/static/js/2.6ece7809.chunk.js",
+    "static/js/2.6ece7809.chunk.js.map": "/foodify/static/js/2.6ece7809.chunk.js.map",
     "index.html": "/foodify/index.html",
     "static/css/main.0d08eb91.chunk.css.map": "/foodify/static/css/main.0d08eb91.chunk.css.map",
-    "static/js/2.a4b76fab.chunk.js.LICENSE.txt": "/foodify/static/js/2.a4b76fab.chunk.js.LICENSE.txt",
+    "static/js/2.6ece7809.chunk.js.LICENSE.txt": "/foodify/static/js/2.6ece7809.chunk.js.LICENSE.txt",
     "static/media/mock-recipe-img.28e38134.jpg": "/foodify/static/media/mock-recipe-img.28e38134.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.405298cb.js",
-    "static/js/2.a4b76fab.chunk.js",
+    "static/js/2.6ece7809.chunk.js",
     "static/css/main.0d08eb91.chunk.css",
-    "static/js/main.6adedaf9.chunk.js"
+    "static/js/main.9ee6ff23.chunk.js"
   ]
 }
