@@ -1,4 +1,4 @@
 # gh-pages
-homepage: https://alexsandr90.github.io/foodify/
+https://alexsandr90.github.io/foodify/
 # heroku
-heroku: https://react-foodify.herokuapp.com/
+https://react-foodify.herokuapp.com/
