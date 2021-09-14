@@ -7,9 +7,11 @@
   margin-bottom: 2rem;
 
   .nav {
-    max-width: 300px;
+    max-width: 600px;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
   }
 }

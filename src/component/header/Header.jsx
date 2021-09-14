@@ -2,6 +2,7 @@ import React from 'react';
 
 import './header.scss';
 import MenuItem from "../menu-item";
+import CustomRecipeBtn from '../custom-recipe-btn/CustomRecipeBtn';
 
 const Header = () => {
 
@@ -12,14 +13,18 @@ const Header = () => {
                 <MenuItem
                     key='1'
                     path=''
-                    menuItemName='Random dish'
-                />
+                >
+                    Random dish
+                </MenuItem>
 
                 <MenuItem
                     key='2'
                     path='favorite'
-                    menuItemName='Favorites'
-                />
+                >
+                    Favorites
+                </MenuItem>
+
+                <CustomRecipeBtn/>
             </nav>
 
         </header>

@@ -21,6 +21,7 @@ const App = () => {
         if ( isEmpty('meal') && JSON.parse( storage.getItem('meal') ).length !== 0) {
             return <FavoriteRecipes/>
         } else {
+            alert('Пожалуйста, добавьте рецепт');
             return <Redirect to='/'/>
         }
     };

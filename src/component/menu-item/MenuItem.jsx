@@ -8,7 +8,7 @@ const MenuItem = props => {
     const {
         id,
         path,
-        menuItemName
+        children
     } = props;
 
     return (
@@ -19,7 +19,7 @@ const MenuItem = props => {
                 activeClassName='active-recipe'
                 className='item'
             >
-                { menuItemName }
+                { children }
             </NavLink>
         </li>
     )
