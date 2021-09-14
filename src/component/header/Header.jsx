@@ -1,14 +1,13 @@
 import React from 'react';
-
 import './header.scss';
+
 import MenuItem from "../menu-item";
-import CustomRecipeBtn from '../custom-recipe-btn/CustomRecipeBtn';
+import CustomRecipeBtn from "../custom-elements/custom-recipe-btn";
 
 const Header = () => {
 
     return(
         <header className="header">
-
             <nav className='nav'>
                 <MenuItem
                     key='1'
@@ -26,7 +25,6 @@ const Header = () => {
 
                 <CustomRecipeBtn/>
             </nav>
-
         </header>
     )
 };

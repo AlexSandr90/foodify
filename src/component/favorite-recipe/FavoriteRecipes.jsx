@@ -1,8 +1,7 @@
 import React from 'react';
 import './favorite-recipe.scss';
 import RecipeCard from "../recipe-card";
-import { storage } from "../helpers/helpers";
-
+import { storage } from "../../helpers/helpers";
 
 const FavoriteRecipes = () => {
 

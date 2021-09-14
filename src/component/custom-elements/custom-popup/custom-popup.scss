@@ -1,4 +1,4 @@
-.add-custom-recipe-form {
+.custom_popup-form {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,13 +12,12 @@
   transition: all .3s, ease-in-out;
 }
 
-.custom-recipe-inner {
+.custom_popup-inner {
   position: relative;
   padding: 32px;
   max-width: 430px;
   width: 100%;
   background-color: #fff;
-
 }
 
 .close-btn {

@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
-import AddCustomRecipe from '../add-custom-recipe';
-import CustomButton from '../custom-button';
-import { 
-    handleChange, 
-    randomID, 
-    storage 
-} from '../helpers/helpers';
-import mock_img from '../../assets/images/mock-recipe-img.jpg';
 import './custom-recipe-btn.scss';
+import mock_img from '../../../assets/images/mock-recipe-img.jpg'
+
+import {
+    storage,
+    randomID,
+    handleChange,
+} from "../../../helpers";
+
+import CustomPopup from "../custom-popup";
+import CustomButton from "../custom-button";
 
 const CustomRecipeBtn = () => {
-    const [popupFlag, setPopupFlag] = useState(false);
-    const [input, setInput] = useState('');
     const [text, setText] = useState('');
+    const [input, setInput] = useState('');
+    const [popupFlag, setPopupFlag] = useState(false);
 
     const saveRecipeToLocalStorage = () => {
         if (!input || !text) {
@@ -39,7 +41,7 @@ const CustomRecipeBtn = () => {
                 Add custom dish
             </CustomButton>
 
-            <AddCustomRecipe
+            <CustomPopup
                 trigger={popupFlag}
                 setTrigger={setPopupFlag}
             >
@@ -68,7 +70,7 @@ const CustomRecipeBtn = () => {
                         Add custom dish    
                     </CustomButton>
                 </form>
-            </AddCustomRecipe>
+            </CustomPopup>
         </>
     )
 };

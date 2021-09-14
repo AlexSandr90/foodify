@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 
 import './random-recipe.scss';
 import RecipeCard from "../recipe-card";
-import CustomButton from "../custom-button";
+import CustomButton from "../custom-elements/custom-button";
 import {
-    isEmpty,
     storage,
+    isEmptyStorage,
     getRandomRecipe,
     saveRecipeToLocalStorage
-} from "../helpers/helpers";
+} from "../../helpers";
 
 const RandomRecipe = () => {
     const [state, setState ] = useState([]);
@@ -20,7 +20,7 @@ const RandomRecipe = () => {
 
     const renderRecipe = () => {
         const meal = JSON.parse(storage.meal);
-        if (state.length === 0 && isEmpty('meal')) {
+        if (state.length === 0 && isEmptyStorage('meal')) {
             return (
                 <RecipeCard
                     key={meal[0]?.idMeal}
@@ -57,7 +57,7 @@ const RandomRecipe = () => {
 
                 <CustomButton
                     buttonClassName='card-btn'
-                    handleClick={() => saveRecipeToLocalStorage(state)}
+                    handleClick={() => saveRecipeToLocalStorage(state, setState)}
                 >
                     Like
                 </CustomButton>

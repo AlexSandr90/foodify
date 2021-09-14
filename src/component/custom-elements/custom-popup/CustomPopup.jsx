@@ -1,11 +1,11 @@
 import React from 'react';
-import './add-custom-recipe.scss';
+import './custom-popup.scss';
 
-const AddCustomRecipe = ({trigger, setTrigger, children}) => {
+const CustomPopup = ({trigger, setTrigger, children}) => {
 
     return (trigger) ? (
-        <div className='add-custom-recipe-form'>
-            <div className='custom-recipe-inner'>
+        <div className='custom_popup-form'>
+            <div className='custom_popup-inner'>
                 <button
                     className='close-btn'
                     onClick={() => setTrigger(false)}
@@ -18,4 +18,4 @@ const AddCustomRecipe = ({trigger, setTrigger, children}) => {
     ) : ''
 };
 
-export default AddCustomRecipe;
+export default CustomPopup;
