@@ -19,47 +19,41 @@ import CustomPopup from "../custom-elements/custom-popup";
 
 const App = () => {
 
-    const [ popupFlag, setPopupFlag ] = useState(false);
-
-    const needAddRecipe = () => {
-        return (
-            <CustomPopup
-                trigger={popupFlag}
-                setTrigger={setPopupFlag}
-            >
-                <h3>Ваша коллекция любимых рецептов пуста! Пожалуйста, добавьте рецепт</h3>
-                <CustomButton
-                    buttonClassName='card-btn'
-                    handleClick={() => setPopupFlag(false)}
-                >
-                    Add custom dish
-                </CustomButton>
-            </CustomPopup>
-        )
-    };
+    const [popupFlag, setPopupFlag] = useState(false);
 
     const renderCondition = () => {
-        if ( isEmptyStorage('meal') && JSON.parse( storage.getItem('meal') ).length !== 0) {
-            return <FavoriteRecipes/>
+        if (isEmptyStorage('meal') && JSON.parse(storage.getItem('meal')).length !== 0) {
+            return <FavoriteRecipes />
         } else {
-            // alert('Пожалуйста, добавьте рецепт');
             setPopupFlag(true);
-            needAddRecipe();
-            return <Redirect to='/'/>
+            return <Redirect to='/' />
         }
     };
 
     return (
         <HashRouter basename={process.env.PUBLIC_URL}>
             <div className="app">
-                <Header/>
+                <Header />
+
+                <CustomPopup
+                    trigger={popupFlag}
+                    setTrigger={setPopupFlag}
+                >
+                    <h3>Ваша коллекция любимых рецептов пуста! Пожалуйста, добавьте рецепт</h3>
+                    <CustomButton
+                        buttonClassName='card-btn'
+                        handleClick={() => setPopupFlag(false)}
+                    >
+                        Добавить рецепт
+                    </CustomButton>
+                </CustomPopup>
 
                 <main className='main-content'>
                     <Switch>
 
                         <Route
                             path='/'
-                            render={() => <RandomRecipe/>}
+                            render={() => <RandomRecipe />}
                             exact
                         />
 
@@ -67,7 +61,7 @@ const App = () => {
                             path='/favorite'
                             exact
                         >
-                            { renderCondition }
+                            {renderCondition}
                         </Route>
 
                     </Switch>
