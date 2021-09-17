@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 import './app.scss';
-import Header from "../header";
 import {
     Route,
     Switch,
     Redirect,
     HashRouter
 } from "react-router-dom";
-import RandomRecipe from "../random-recipe";
-import FavoriteRecipes from "../favorite-recipe";
-
 import {
     storage,
     isEmptyStorage
 } from "../../helpers/helpers";
-import CustomButton from "../custom-elements/custom-button";
-import CustomPopup from "../custom-elements/custom-popup";
+
+import Header from "../header";
+import RandomRecipe from "../random-recipe";
+import FavoriteRecipes from "../favorite-recipe";
+import {
+    CustomPopup,
+    CustomButton
+} from  '../custom-elements';
 
 const App = () => {
 
