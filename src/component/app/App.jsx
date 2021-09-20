@@ -4,7 +4,7 @@ import {
     Route,
     Switch,
     Redirect,
-    HashRouter
+    BrowserRouter as Router
 } from "react-router-dom";
 import {
     storage,
@@ -17,7 +17,7 @@ import FavoriteRecipes from "../favorite-recipe";
 import {
     CustomPopup,
     CustomButton
-} from  '../custom-elements';
+} from '../custom-elements';
 
 const App = () => {
 
@@ -25,17 +25,23 @@ const App = () => {
 
     const renderCondition = () => {
         if (isEmptyStorage('meal') && JSON.parse(storage.getItem('meal')).length !== 0) {
-            return <FavoriteRecipes />
+            return <FavoriteRecipes/>
         } else {
             setPopupFlag(true);
-            return <Redirect to='/' />
+            return <Redirect to='/'/>
         }
+    };
+    
+    const hidePopup = () => {
+        setPopupFlag(false);
+
     };
 
     return (
-        <HashRouter basename={process.env.PUBLIC_URL}>
+
+        <Router>
             <div className="app">
-                <Header />
+                <Header/>
 
                 <CustomPopup
                     trigger={popupFlag}
@@ -44,7 +50,7 @@ const App = () => {
                     <h3>Ваша коллекция любимых рецептов пуста! Пожалуйста, добавьте рецепт</h3>
                     <CustomButton
                         buttonClassName='card-btn'
-                        handleClick={() => setPopupFlag(false)}
+                        handleClick={() => hidePopup()}
                     >
                         Добавить рецепт
                     </CustomButton>
@@ -55,7 +61,7 @@ const App = () => {
 
                         <Route
                             path='/'
-                            render={() => <RandomRecipe />}
+                            render={() => <RandomRecipe/>}
                             exact
                         />
 
@@ -70,8 +76,11 @@ const App = () => {
                 </main>
 
             </div>
-        </HashRouter>
+        </Router>
     );
 };
 
 export default App;
+
+
+{/*<HashRouter basename={process.env.PUBLIC_URL}>*/}
