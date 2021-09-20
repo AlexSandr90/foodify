@@ -9,6 +9,7 @@ import {
     getRandomRecipe,
     saveRecipeToLocalStorage
 } from "../../helpers";
+import {CustomPopup} from "../custom-elements";
 
 const RandomRecipe = () => {
     const [state, setState ] = useState([]);
@@ -41,6 +42,7 @@ const RandomRecipe = () => {
         )
 
     };
+
 
     return (
         <div className='random-card'>
